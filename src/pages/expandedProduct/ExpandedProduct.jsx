@@ -24,7 +24,9 @@ useEffect(() => {
 
          const data = await response.json();
 const targetData = data.find((product) => product.id == productId);
-
+if(!targetData){
+  throw new Error();
+}
 setProduct(targetData);
          setError(false)
       } catch (error) {

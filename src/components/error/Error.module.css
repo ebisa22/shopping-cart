@@ -45,3 +45,18 @@
   background-color: var(--color-primary-dark);
   transform: translateY(-2px);
 }
+
+@media screen and (max-width:450px) {
+  .errorIcon{
+    width: 60px;
+    height: 60px;
+    font-size: 1.7rem;
+  }
+  .errorContainer h2{
+    font-size: 1.7rem;
+  }
+  .homeButton{
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
