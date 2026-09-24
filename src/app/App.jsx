@@ -7,7 +7,7 @@ const App=()=>{
   const [cartList,setCartList]=useState([]);
   return (
     <>
-       <Navbar/>
+       <Navbar totalItems={cartList.length}/>
        <Outlet context={{cartList,setCartList}}/>
       </>  
   )

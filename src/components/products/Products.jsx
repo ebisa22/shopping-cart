@@ -1,5 +1,5 @@
 import styles from './Products.module.css';
-import { Link,useOutlet,useOutletContext } from 'react-router';
+import { Link,useOutletContext } from 'react-router';
 
 
 const structureProducts = (
@@ -53,12 +53,7 @@ const structureProducts = (
   return structuredProducts;
 };
 
-const Products = ({
-  products,
-  category,
-  sortMethod,
-  searchInput,
-}) => {
+const Products = ({products,category,sortMethod,searchInput}) => {
   const {cartList,setCartList}=useOutletContext();
   const structuredProducts = structureProducts(
     products,
@@ -66,9 +61,18 @@ const Products = ({
     sortMethod,
     searchInput
   );
- const handleBuy=(product)=>{
-     setCartList(prevCartList=>setCartList([...prevCartList,product]))
+const handleBuy = (product) => {
+ const exists = cartList.some((cartItem) => cartItem.id === product.id);
+ if (exists) {
+   return;  
  }
+  const productToAdd = {
+    ...product,
+    quantity: 1,
+  };
+
+  setCartList((prevCartList) => [...prevCartList, productToAdd]);
+};
   return (
     <section className={styles.productGrid}>
       {structuredProducts.map(product => (

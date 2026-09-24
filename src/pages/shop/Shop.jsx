@@ -1,11 +1,10 @@
 import styles from './Shop.module.css'
 import { useState } from 'react';
 import { useFetchProducts } from '../../scripts/getProducts';
-import { useOutletContext } from 'react-router';
+
 import Error from '../../components/error/Error';
 import Loading from '../../components/loading/Loading';
 import Products from '../../components/products/Products';
-import CartBar   from '../../components/cartbar/CartBar'
 import menuIcon from '../../assets/icons/menuIcon.svg'
 import searchIcon from '../../assets/icons/searchIcon.svg'
 import sortIcon from '../../assets/icons/sortIcon.svg'
@@ -16,7 +15,6 @@ const Shop = () => {
   const [sortMethod,setSortMethod]=useState("featured");
   const [searchInput,setSearchInput]=useState("");
   const {products,loading,error}=useFetchProducts();
-  const {cartList,setCartList}=useOutletContext();
   
   if(loading)
   {
@@ -140,9 +138,6 @@ const Shop = () => {
        
         </aside>
         </section>
-        {
-          (cartList.length>0)? <CartBar cartList={cartList} setCartList={setCartList}/>:null
-        }
     </main>
   );
 }
