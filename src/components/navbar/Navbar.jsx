@@ -1,54 +1,45 @@
-import styles from './Navbar.module.css'
-import { NavLink } from 'react-router';
+import styles from "./Navbar.module.css";
+import { NavLink } from "react-router";
 
-const Navbar=({goHome,goShop,goCart})=>{
+const Navbar = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.leftHeader}>
-        <NavLink to="/" className={styles.mainTitle}>
+      <div className={styles.container}>
+        <NavLink to="/" className={styles.logo}>
           QuickShop
         </NavLink>
-      </div>
-      <nav className={styles.rightHeader}>
-        <div className={styles.homeNav}>
+
+        <nav className={styles.nav}>
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive
-                ? `${styles.navBtn} ${styles.activeBtn}`
-                : `${styles.navBtn} ${styles.activeBtn}`
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
             }
           >
             Home
           </NavLink>
-        </div>
-        <div className={styles.shopNav}>
+
           <NavLink
-            to="shop"
+            to="/shop"
             className={({ isActive }) =>
-              isActive
-                ? `${styles.navBtn} ${styles.activeBtn}`
-                : `${styles.navBtn} ${styles.activeBtn}`
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
             }
           >
             Shop
           </NavLink>
-        </div>
-        <div className={styles.cartNav}>
+
           <NavLink
-            to="cart"
+            to="/cart"
             className={({ isActive }) =>
-              isActive
-                ? `${styles.navBtn} ${styles.activeBtn}`
-                : `${styles.navBtn} ${styles.activeBtn}`
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
             }
           >
             Cart
           </NavLink>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
   );
-}
+};
 
 export default Navbar;
