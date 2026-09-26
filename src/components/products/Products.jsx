@@ -111,7 +111,7 @@ const handleBuy = (product) => {
               <button className={styles.buyButton} onClick={()=>{
                handleBuy(product)
               }}>
-                Buy
+                Add to Cart
               </button>
             </div>
           </div>
